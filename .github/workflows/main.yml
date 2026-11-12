@@ -1,14 +1,14 @@
-name: Primeiro Workflow
+name: primeiro WorkFlow
 on:
   push:
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Iniciando o Workflow"
-      - name: Checkout
-        uses: actions/checkout@v5
+      - run: echo "iniciando o workflow"
+      - name: checkout
+        uses: actions/checkout@v2
       - name: Listando Arquivos
-        run: 1s ${{ github.workspace }}
-      - name: Status
-        run: echo "${{ job.Status }}"
+        run: ls ${{ github.workspace }}
+      - name: status
+        run: echo "${{job.status}}"
