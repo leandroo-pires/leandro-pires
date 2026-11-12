@@ -1,1 +1,17 @@
 name: Atividade de Workflow
+on:
+  push:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "iniciando o workflow"
+      - name: checkout
+        uses: actions/checkout@v2
+      - run: echo "${{ github.repository }}"
+      - run: echo "${{ github.actor }}"
+      - name: Verificando README.md
+        run: test -f README.md
+      - name: status
+        if: always()
+        run: echo "${{ job.status }}"
